@@ -24,8 +24,11 @@ projects=pd.read_csv(url)
 from fastapi import FastAPI, File, UploadFile, HTTPException
 app=FastAPI()
 
+@app.get("/")
+def root():
+    return{"Similarity checker"}
 
-@app.post("/")
+@app.post("/similarity")
 def search_match(idea):
   max_score = 0
   most_similar_project_index = None
